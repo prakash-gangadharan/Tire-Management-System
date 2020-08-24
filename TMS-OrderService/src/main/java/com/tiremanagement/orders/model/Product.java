@@ -9,10 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
+@NoArgsConstructor
 @Entity
 public class Product {
 	@Id
@@ -29,9 +31,6 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name = "orderId")
 	OrderDetails orderDetails;
-
-	public Product() {
-	}
 
 	public Product(String productName, String productDescription, double unitPrice, OrderDetails orderDetails) {
 		this.productName = productName;

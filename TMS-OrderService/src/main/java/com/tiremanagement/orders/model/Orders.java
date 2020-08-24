@@ -10,10 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Setter
+@NoArgsConstructor
 @Getter
 public class Orders {
     @Id
@@ -25,10 +27,6 @@ public class Orders {
     Set<Customer> customer;
 
     double totalAmount;
-    
-    public Orders() {
-    }
-
 
     @Override
     public String toString() {

@@ -23,7 +23,7 @@ import com.tiremanagement.registration.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/user")
-public class MainController {
+public class UserDetailsController {
     
     @Autowired
     private UserRepository userRepository;
