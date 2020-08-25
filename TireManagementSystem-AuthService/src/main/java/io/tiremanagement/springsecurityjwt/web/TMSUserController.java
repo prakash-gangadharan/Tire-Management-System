@@ -23,7 +23,7 @@ import io.tiremanagement.springsecurityjwt.models.UserRegistrationDto;
 @RestController
 @RequestMapping("/user")
 public class TMSUserController {
-
+	
     //@Autowired
     private RestTemplate restTemplate = new RestTemplate();
     
