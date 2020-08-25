@@ -4,6 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.tiremanagement.orders.model.Product;
 
-
-public interface ProductRepo extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product,Integer> {
 }

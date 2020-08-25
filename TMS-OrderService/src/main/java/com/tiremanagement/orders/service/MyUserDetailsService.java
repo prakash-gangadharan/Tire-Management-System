@@ -1,4 +1,4 @@
-package io.tiremanagement.springsecurityjwt.service;
+package com.tiremanagement.orders.service;
 
 import java.util.ArrayList;
 
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import io.tiremanagement.springsecurityjwt.entity.User;
-import io.tiremanagement.springsecurityjwt.repository.UserRepository;
+import com.tiremanagement.orders.entity.User;
+import com.tiremanagement.orders.repository.UserRepository;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
