@@ -14,11 +14,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Setter
 @Getter
+@NoArgsConstructor
 public class Customer {
     @Id
     @Column(name = "customerId")
@@ -32,13 +34,11 @@ public class Customer {
     String cusProvince;
     String cusCountry;
 
+
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinColumn(name = "orderId")
     @JoinTable(name = "customer_order", joinColumns = {@JoinColumn(name = "customerId")}, inverseJoinColumns = {@JoinColumn(name = "orderId")})
     Set<Orders> orders = new HashSet<Orders>(0);
-
-    public Customer() {
-    }
 
     public Customer(String cusFirstname, String cusLastname, String cusEmail, String cusPhoneNo, String cusCity, String cusProvince, String cusCountry, Set<Orders> orders) {
         this.cusFirstname = cusFirstname;

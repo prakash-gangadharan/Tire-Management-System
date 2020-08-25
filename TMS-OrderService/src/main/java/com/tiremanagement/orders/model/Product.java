@@ -1,12 +1,17 @@
 package com.tiremanagement.orders.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,20 +22,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 public class Product {
-	@Id
-	@Column(name = "productId")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long productId;
+    @Id
+    @Column(name = "productId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long productId;
 
-	String productName;
+    String productName;
 
-	String productDescription;
+    String productDescription;
 
-	double unitPrice;
+    double unitPrice;
 
-	@ManyToOne
-	@JoinColumn(name = "orderId")
-	OrderDetails orderDetails;
+    @ManyToOne
+    @JoinColumn(name = "orderDetailsNo")
+    OrderDetails orderDetails;
 
 	public Product(String productName, String productDescription, double unitPrice, OrderDetails orderDetails) {
 		this.productName = productName;

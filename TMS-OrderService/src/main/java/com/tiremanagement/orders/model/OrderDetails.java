@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,36 +28,22 @@ public class OrderDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long orderDetailsNo;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orderId")
     Orders orders;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "productId")
     Product product;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book", fetch = FetchType.EAGER)
-	private List<Product> productList = new ArrayList<>();
 
     int quantity;
 
     double subtotal;
 
-    public OrderDetails(Orders orders, Product product, int quantity, double subtotal) {
-        this.orders = orders;
-        this.product = product;
-        this.quantity = quantity;
-        this.subtotal = subtotal;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderDetails{" +
-                "orderDetailsNo=" + orderDetailsNo +
-                ", orders=" + orders +
-                ", product=" + product +
-                ", quantity=" + quantity +
-                ", subtotal=" + subtotal +
-                '}';
-    }
+	public OrderDetails(Orders orders, Product product, int quantity, double subtotal) {
+		this.orders = orders;
+		this.product = product;
+		this.quantity = quantity;
+		this.subtotal = subtotal;
+	}
 }

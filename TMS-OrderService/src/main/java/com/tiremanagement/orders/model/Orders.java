@@ -27,13 +27,4 @@ public class Orders {
     Set<Customer> customer;
 
     double totalAmount;
-
-    @Override
-    public String toString() {
-        return "Orders{" +
-                "orderId=" + orderId +
-                ", customer=" + customer +
-                ", totalAmount=" + totalAmount +
-                '}';
-    }
 }
