@@ -27,22 +27,7 @@ public class UserDetailsController {
     
     @Autowired
     private UserRepository userRepository;
-/*
-    @GetMapping("/")
-    public String root() {
-        return "index";
-    }
 
-    @GetMapping("/login")
-    public String login(Model model) {
-        return "login";
-    }
-
-    @GetMapping("/user")
-    public String userIndex() {
-        return "user/index";
-    }
-*/
     @GetMapping("/{id}")
     public ResponseEntity<User> showUpdateForm(@PathVariable("id") long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));

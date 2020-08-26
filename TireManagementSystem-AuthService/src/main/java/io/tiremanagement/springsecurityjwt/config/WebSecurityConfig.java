@@ -56,7 +56,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.csrf().disable()
 		.authorizeRequests()
 		.antMatchers(
-				"/user/registration",
+				"/user/*",
 				//"/update/*",
 				"/authenticate"
 				)

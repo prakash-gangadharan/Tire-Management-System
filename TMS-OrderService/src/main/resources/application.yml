@@ -15,6 +15,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 eureka:
   client:
-    enabled: false
-    fetchRegistry: false
-    registerWithEureka: false
+    enabled: true
+    fetchRegistry: true
+    registerWithEureka: true

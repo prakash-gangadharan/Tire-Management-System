@@ -26,16 +26,6 @@ public class UserRegistrationController {
     @Autowired
     private UserService userService;
 
-    @ModelAttribute("user")
-    public UserRegistrationDto userRegistrationDto() {
-        return new UserRegistrationDto();
-    }
-
-    @GetMapping
-    public String showRegistrationForm(Model model) {
-        return "registration";
-    }
-
     @PostMapping
     public ResponseEntity<User> registerUserAccount(@Valid @RequestBody UserRegistrationDto userDto,
                                       BindingResult result){

@@ -28,7 +28,7 @@ public class TMSUserController {
     private RestTemplate restTemplate = new RestTemplate();
     
     private final String registrationUrl = "http://localhost:8081/registration";
-    private final String updateUrl = "http://localhost:8081/update";
+    private final String updateUrl = "http://localhost:8081/api/user/update";
     
     @PostMapping("/registration")
     public ResponseEntity<Object> registerUserAccount(@Valid @RequestBody UserRegistrationDto userDto,
@@ -42,7 +42,7 @@ public class TMSUserController {
 	public ResponseEntity<Object> updateUserAccount(@PathVariable("id") long id,
 			@Valid @RequestBody UserRegistrationDto userDto, BindingResult result)
 			throws RestClientException, URISyntaxException {
-		URI uri = new URI(updateUrl);
+		URI uri = new URI(updateUrl+"/"+id);
 		ResponseEntity<Object> response = restTemplate.postForEntity(uri, userDto, Object.class);
 		return response;
 	}
