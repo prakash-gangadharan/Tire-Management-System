@@ -1,18 +1,13 @@
 server:
     port: 8083
 spring:
+  cloud:
+      config:
+          uri: http://localhost:8888
+  profiles:
+      active: development
   application:
       name: TMS-OrderService
-  jpa:
-    database: MYSQL
-    hibernate:
-      ddl-auto: update
-  datasource:
-    #url: jdbc:mysql://localhost:3306/mysqljdbc?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Jakarta&useSSL=false
-    url: jdbc:mysql://localhost:3306/mysqljdbc?createDatabaseIfNotExist=true
-    username: user
-    password: Angular@123
-    driver-class-name: com.mysql.cj.jdbc.Driver
 eureka:
   client:
     enabled: true

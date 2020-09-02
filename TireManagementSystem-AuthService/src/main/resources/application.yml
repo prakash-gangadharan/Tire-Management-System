@@ -1,15 +1,10 @@
 server:
     port: 8082
 spring:
+    cloud:
+        config:
+            uri: http://localhost:8888
     application:
         name: TMS-AuthService
-    datasource:
-        url: jdbc:mysql://localhost:3306/mysqljdbc?createDatabaseIfNotExist=true
-        username: user
-        password: Angular@123
-    jpa:
-        hibernate:
-            ddl-auto: update
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    profiles:
+        active: development
