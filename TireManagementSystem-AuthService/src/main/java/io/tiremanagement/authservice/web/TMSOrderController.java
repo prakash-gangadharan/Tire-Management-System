@@ -2,14 +2,15 @@ package io.tiremanagement.authservice.web;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
@@ -17,9 +18,17 @@ import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+import io.tiremanagement.authservice.entity.Order;
+import io.tiremanagement.authservice.repository.OrderRepository;
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/order")
+@Slf4j
 public class TMSOrderController {
+
+	@Autowired
+	private OrderRepository orderRepository;
 	
     //@Autowired
     private RestTemplate restTemplate = new RestTemplate();
@@ -33,7 +42,7 @@ public class TMSOrderController {
     @GetMapping("/getInfo")
     @HystrixCommand(fallbackMethod = "defaultProductList")
     public Object registerUserAccount() throws RestClientException, URISyntaxException {
-    	 headers.add("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2YW5pdGhhMTguZ0BnbWFpbC5jb20iLCJleHAiOjE1OTkzMjgzNjgsImlhdCI6MTU5OTI5MjM2OH0.Dvak9C41GE33fGW4kPoLGQpKG1KpIYRJx7wCIXHiGRE");
+    	 headers.add("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2YW5pdGhhMTguZ0BnbWFpbC5jb20iLCJleHAiOjE1OTk0MzI4MDQsImlhdCI6MTU5OTM5NjgwNH0.xVoSJk4iQTKW11bYYfaWPiUdp9fM-Hh1d0msi3u6jLM");
 		URI uri = new URI(getOrderInfoUrl);
 		
 		// Create request
@@ -46,9 +55,11 @@ public class TMSOrderController {
 
 	@GetMapping("/findAllOrders")
 	@HystrixCommand(fallbackMethod = "defaultProductList")
-	public Object updateUserAccount()
+	public Object findAllUserOrders()
 			throws RestClientException, URISyntaxException {
-   	 headers.add("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2YW5pdGhhMTguZ0BnbWFpbC5jb20iLCJleHAiOjE1OTkzMjgzNjgsImlhdCI6MTU5OTI5MjM2OH0.Dvak9C41GE33fGW4kPoLGQpKG1KpIYRJx7wCIXHiGRE");
+		//log.info("TMSOrderController >> findAllUserOrders >> "+ token);
+	
+		headers.add("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2YW5pdGhhMTguZ0BnbWFpbC5jb20iLCJleHAiOjE1OTk0MzI4MDQsImlhdCI6MTU5OTM5NjgwNH0.xVoSJk4iQTKW11bYYfaWPiUdp9fM-Hh1d0msi3u6jLM");
 		URI uri = new URI(findAllOrdersUrl);
 		
 		// Create request
@@ -59,8 +70,10 @@ public class TMSOrderController {
 		return response;
 	}
 
-	public List<String> defaultProductList() {
-		return Arrays.asList("Order 1", "Order 2");
+	public Map<Long, Order> defaultProductList() {
+		//return Arrays.asList("Order 1", "Order 2");
+		return orderRepository.findAll();
+		
 	}
 }
 

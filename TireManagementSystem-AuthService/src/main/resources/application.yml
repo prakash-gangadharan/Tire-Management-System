@@ -8,3 +8,6 @@ spring:
         name: TMS-AuthService
     profiles:
         active: development
+    redis:
+        host: localhost
+        port: 6379
