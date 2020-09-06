@@ -1,4 +1,4 @@
-package io.tiremanagement.springsecurityjwt.filters;
+package io.tiremanagement.authservice.filters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -8,8 +8,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import io.tiremanagement.springsecurityjwt.service.MyUserDetailsService;
-import io.tiremanagement.springsecurityjwt.util.JwtUtil;
+import io.tiremanagement.authservice.service.MyUserDetailsService;
+import io.tiremanagement.authservice.util.JwtUtil;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

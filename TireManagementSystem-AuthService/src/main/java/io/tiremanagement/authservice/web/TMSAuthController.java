@@ -1,4 +1,4 @@
-package io.tiremanagement.springsecurityjwt.web;
+package io.tiremanagement.authservice.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.tiremanagement.springsecurityjwt.models.AuthenticationRequest;
-import io.tiremanagement.springsecurityjwt.models.AuthenticationResponse;
-import io.tiremanagement.springsecurityjwt.service.MyUserDetailsService;
-import io.tiremanagement.springsecurityjwt.util.JwtUtil;
+import io.tiremanagement.authservice.models.AuthenticationRequest;
+import io.tiremanagement.authservice.models.AuthenticationResponse;
+import io.tiremanagement.authservice.service.MyUserDetailsService;
+import io.tiremanagement.authservice.util.JwtUtil;
 
 @RestController
 

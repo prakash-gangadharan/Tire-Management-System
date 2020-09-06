@@ -1,4 +1,4 @@
-package io.tiremanagement.springsecurityjwt.models;
+package io.tiremanagement.authservice.models;
 
 import java.io.Serializable;
 

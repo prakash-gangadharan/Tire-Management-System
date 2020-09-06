@@ -1,4 +1,4 @@
-package io.tiremanagement.springsecurityjwt.entity;
+package io.tiremanagement.authservice.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

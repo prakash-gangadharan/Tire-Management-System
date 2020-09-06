@@ -1,9 +1,9 @@
-package io.tiremanagement.springsecurityjwt.repository;
+package io.tiremanagement.authservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import io.tiremanagement.springsecurityjwt.entity.User;
+import io.tiremanagement.authservice.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

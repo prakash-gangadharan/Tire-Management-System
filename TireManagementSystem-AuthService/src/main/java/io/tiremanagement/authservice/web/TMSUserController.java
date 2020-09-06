@@ -1,4 +1,4 @@
-package io.tiremanagement.springsecurityjwt.web;
+package io.tiremanagement.authservice.web;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-
-import io.tiremanagement.springsecurityjwt.models.UserRegistrationDto;
+import io.tiremanagement.authservice.models.UserRegistrationDto;
 
 @RestController
 @RequestMapping("/user")

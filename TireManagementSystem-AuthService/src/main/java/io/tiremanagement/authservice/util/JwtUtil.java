@@ -1,4 +1,4 @@
-package io.tiremanagement.springsecurityjwt.util;
+package io.tiremanagement.authservice.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
